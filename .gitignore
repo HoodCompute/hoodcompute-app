@@ -1,0 +1,29 @@
+# dependencies
+node_modules
+.pnp
+.pnp.*
+
+# build output
+.next
+out
+build
+dist
+
+# env
+.env*
+!.env.example
+
+# misc
+.DS_Store
+*.log
+.idea
+.vscode
+
+# contracts (separate repo)
+contracts/
+
+# typescript build info
+*.tsbuildinfo
+
+# typescript build info
+*.tsbuildinfo
