@@ -13,4 +13,4 @@ This section covers the fundamental mechanics of the HoodCompute network. Unders
 - [Privacy Model]({% link core-concepts/privacy.md %}): what is encrypted, what is on-chain, and what no one sees
 - [On-Chain Settlement]({% link core-concepts/on-chain-settlement.md %}): smart contracts, escrow, and payout mechanics
 - [Credits]({% link core-concepts/credits.md %}): what credits are and how to manage them
-- [Tokenomics]({% link core-concepts/tokenomics.md %}): $HOODCOMPUTE token, staking, and value accrual
+- [Tokenomics]({% link core-concepts/tokenomics.md %}): $HCOMPUTE token, staking, and value accrual

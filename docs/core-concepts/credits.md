@@ -108,11 +108,11 @@ The USDG is transferred from the `job_escrow` contract back to your wallet in th
 
 ---
 
-## Credits vs $HOODCOMPUTE
+## Credits vs $HCOMPUTE
 
-Credits and $HOODCOMPUTE are separate and serve different purposes.
+Credits and $HCOMPUTE are separate and serve different purposes.
 
-| | Credits | $HOODCOMPUTE |
+| | Credits | $HCOMPUTE |
 |---|---|---|
 | Purpose | Pay for inference jobs | Stake, govern, earn protocol fees |
 | Value | Fixed at $0.01 USDG | Market price |
@@ -120,4 +120,4 @@ Credits and $HOODCOMPUTE are separate and serve different purposes.
 | Spent on | Inference requests | Staking (locked, not spent) |
 | On-chain | Balance in the `job_escrow` contract | ERC-20 token balance |
 
-You do not need $HOODCOMPUTE to use HoodCompute as a user. You do not need credits to provide compute. They operate in parallel.
+You do not need $HCOMPUTE to use HoodCompute as a user. You do not need credits to provide compute. They operate in parallel.

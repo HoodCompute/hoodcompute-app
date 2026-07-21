@@ -7,17 +7,17 @@ nav_order: 3
 
 # Staking
 
-Staking $HOODCOMPUTE (an ERC-20 token on Robinhood Chain) serves two purposes. For providers, it unlocks the 85% payout rate and elevated routing priority. For any $HOODCOMPUTE holder, it earns a share of the weekly protocol fee distribution in USDG.
+Staking $HCOMPUTE (an ERC-20 token on Robinhood Chain) serves two purposes. For providers, it unlocks the 85% payout rate and elevated routing priority. For any $HCOMPUTE holder, it earns a share of the weekly protocol fee distribution in USDG.
 
 ---
 
 ## Provider staking
 
-Providers who stake a minimum of 1,000 $HOODCOMPUTE in the `staking` contract receive 85% of each completed job's credit value. Unstaked providers receive 98%.
+Providers who stake a minimum of 1,000 $HCOMPUTE in the `staking` contract receive 85% of each completed job's credit value. Unstaked providers receive 98%.
 
 | Parameter | Value |
 |---|---|
-| Minimum stake to qualify | 1,000 $HOODCOMPUTE |
+| Minimum stake to qualify | 1,000 $HCOMPUTE |
 | Unstaked payout rate | 98% of job value |
 | Staked payout rate | 85% of job value |
 | Earnings increase | ~13.3% more USDG per completed job |
@@ -28,8 +28,8 @@ At the Standard tier (8 credits per request = $0.08), the difference per job is 
 ### Staking as a native worker
 
 1. Make sure `hoodcompute-node` is installed and your worker is registered. See the [Native Worker guide]({% link providers/native-worker.md %}).
-2. Go to `hoodcompute.com/app`, navigate to the Earn tab, and click "Stake $HOODCOMPUTE."
-3. Choose an amount (minimum 1,000 $HOODCOMPUTE) and a lock period.
+2. Go to `hoodcompute.com/app`, navigate to the Earn tab, and click "Stake $HCOMPUTE."
+3. Choose an amount (minimum 1,000 $HCOMPUTE) and a lock period.
 4. Approve the staking transaction from your wallet. Gas is sponsored by HoodCompute via ERC-4337, so you do not need ETH to stake.
 
 The `staking` contract registers your stake and links it to your registered worker address. The `settlement` contract reads this during payout calculation and applies the 85% rate immediately for jobs completed after the stake confirms.
@@ -38,25 +38,25 @@ The `staking` contract registers your stake and links it to your registered work
 
 ## Lock periods
 
-You choose how long to lock your $HOODCOMPUTE stake. The lock period affects your $HOODCOMPUTE reward multiplier, not your USDG per-job payout rate. The 85% rate applies regardless of lock period.
+You choose how long to lock your $HCOMPUTE stake. The lock period affects your $HCOMPUTE reward multiplier, not your USDG per-job payout rate. The 85% rate applies regardless of lock period.
 
-| Lock period | $HOODCOMPUTE reward multiplier |
+| Lock period | $HCOMPUTE reward multiplier |
 |---|---|
 | 30 days | 1.0x |
 | 90 days | 1.25x |
 | 180 days | 1.5x |
 
-$HOODCOMPUTE rewards accumulate from the Community/Provider rewards pool (40% of total supply over 4 years). A 180-day lock earns 50% more $HOODCOMPUTE per completed job compared to a 30-day lock, while USDG payout stays at 85% for both.
+$HCOMPUTE rewards accumulate from the Community/Provider rewards pool (40% of total supply over 4 years). A 180-day lock earns 50% more $HCOMPUTE per completed job compared to a 30-day lock, while USDG payout stays at 85% for both.
 
-Once a lock period begins, you cannot withdraw the staked $HOODCOMPUTE until it expires. USDG earnings from completed jobs are always immediately available regardless of lock status.
+Once a lock period begins, you cannot withdraw the staked $HCOMPUTE until it expires. USDG earnings from completed jobs are always immediately available regardless of lock status.
 
 ---
 
 ## Passive staking
 
-You do not need to run a worker node to stake $HOODCOMPUTE and earn protocol fees.
+You do not need to run a worker node to stake $HCOMPUTE and earn protocol fees.
 
-Any wallet holding $HOODCOMPUTE can stake and receive a share of the weekly USDG distribution from the protocol treasury. This distribution comes from 50% of the protocol's weekly fee revenue, split pro-rata among all stakers by staked balance.
+Any wallet holding $HCOMPUTE can stake and receive a share of the weekly USDG distribution from the protocol treasury. This distribution comes from 50% of the protocol's weekly fee revenue, split pro-rata among all stakers by staked balance.
 
 **To stake passively:**
 1. Go to `hoodcompute.com/app` and connect your wallet.
@@ -74,11 +74,11 @@ Providers who submit fraudulent proofs of completion and are confirmed dishonest
 
 | Event | Consequence |
 |---|---|
-| Confirmed fraudulent proof | 5% of staked $HOODCOMPUTE burned |
+| Confirmed fraudulent proof | 5% of staked $HCOMPUTE burned |
 | Burned to | Protocol burn address (permanent) |
-| Effect on payout rate | Drops to 98% if balance falls below 1,000 $HOODCOMPUTE |
+| Effect on payout rate | Drops to 98% if balance falls below 1,000 $HCOMPUTE |
 
-Slashing is designed to be proportionate but meaningful. A provider staking 10,000 $HOODCOMPUTE who is caught submitting a fraudulent proof loses 500 $HOODCOMPUTE permanently. This creates a financial disincentive that scales with the stake.
+Slashing is designed to be proportionate but meaningful. A provider staking 10,000 $HCOMPUTE who is caught submitting a fraudulent proof loses 500 $HCOMPUTE permanently. This creates a financial disincentive that scales with the stake.
 
 Slashing only applies to confirmed disputes. A failed job or a rerouted job does not trigger slashing.
 
@@ -86,13 +86,13 @@ Slashing only applies to confirmed disputes. A failed job or a rerouted job does
 
 ## Unstaking
 
-When your lock period expires, you can withdraw your staked $HOODCOMPUTE at any time.
+When your lock period expires, you can withdraw your staked $HCOMPUTE at any time.
 
 1. Go to the Staking tab in the app.
 2. Click "Unstake" next to the expired stake.
 3. Approve the transaction.
 
-The $HOODCOMPUTE is returned to your wallet in the same transaction. There is no cooldown period after the lock expires.
+The $HCOMPUTE is returned to your wallet in the same transaction. There is no cooldown period after the lock expires.
 
 If you have multiple stakes with different lock periods, you can unstake them independently as each one expires.
 

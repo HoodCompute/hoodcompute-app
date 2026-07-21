@@ -34,7 +34,7 @@ The routing algorithm selects the best available worker using a weighted scoring
 | Factor | Description |
 |---|---|
 | Model availability | Worker must be hosting the requested model or a compatible variant |
-| Stake weight | Higher $HOODCOMPUTE stake increases routing priority |
+| Stake weight | Higher $HCOMPUTE stake increases routing priority |
 | Reputation score | On-chain score based on historical completion rate, latency, and proof validity |
 | Estimated latency | Geographic proximity to the requesting client |
 

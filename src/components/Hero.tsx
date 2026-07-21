@@ -19,7 +19,7 @@ export function Hero() {
 
           <p className="mt-8 max-w-[800px] text-[20px] leading-[1.65] text-white  md:text-[22px]">
             HoodCompute is an open network for AI inference. Share your GPU and earn USDG for the work it does, or run private, uncensored models with no account and nothing logged. Every payment settles transparently on Robinhood Chain.
-            <br/><span className="text-base">$HOODCOMPUTE: </span>
+            <br/><span className="text-base">$HCOMPUTE: </span>
           </p>
 
           <Link href="/app" className="nav-btn-cta mt-10">

@@ -10,7 +10,7 @@ const CARDS: (Omit<StackingCard, "image"> & { iconSlot: ReactNode; previewSlot: 
   {
     iconSlot: <SparkleIcon className="h-7 w-7 text-gold" />,
     title: "Connect your GPU and start earning USDG.",
-    body: "Browser workers join with a single tab open and nothing to install. Native workers run a lightweight daemon and earn more for every job they complete. Either way you are paid in USDG for the inference you handle, and staking $HOODCOMPUTE raises your share to 85 percent of each job's value.",
+    body: "Browser workers join with a single tab open and nothing to install. Native workers run a lightweight daemon and earn more for every job they complete. Either way you are paid in USDG for the inference you handle, and staking $HCOMPUTE raises your share to 85 percent of each job's value.",
     ctaLabel: "Start earning",
     ctaHref: "/app",
     previewSlot: <EarnPreview />,

@@ -130,7 +130,7 @@ export function EarnPreview() {
 
         <div className="flex flex-col gap-3 overflow-hidden sm:col-span-2">
           <div className="rounded-[10px] p-3.5" style={CARD}>
-            <p className="text-[11px] font-[500] text-white/70">$HOODCOMPUTE stake</p>
+            <p className="text-[11px] font-[500] text-white/70">$HCOMPUTE stake</p>
             <div className="mt-2 flex items-center justify-between">
               <span className="text-[10px] text-white/35">Reward rate</span>
               <span className="font-mono text-[12px] font-[500] text-white/80">85%</span>
@@ -138,7 +138,7 @@ export function EarnPreview() {
             <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full" style={{ background: "oklch(1 0 0 / 0.08)" }}>
               <div className="h-full rounded-full" style={{ width: "72%", background: "var(--gold)" }} />
             </div>
-            <p className="mt-1.5 text-[10px] text-white/25">1,200 $HOODCOMPUTE staked</p>
+            <p className="mt-1.5 text-[10px] text-white/25">1,200 $HCOMPUTE staked</p>
           </div>
 
           <div className="flex-1 overflow-hidden rounded-[10px] p-3.5" style={CARD}>

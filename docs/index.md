@@ -30,7 +30,7 @@ The network has three layers.
 
 **Private by design.** Prompts are encrypted client-side with a one-time ephemeral key. Workers decrypt only in memory, only for the duration of inference. Nothing is written to disk or retained by any party.
 
-**Censorship resistant.** All models on HoodCompute are open-weight. No model-level content filtering is applied at the protocol layer. Model curation is governed by $HOODCOMPUTE holders on-chain.
+**Censorship resistant.** All models on HoodCompute are open-weight. No model-level content filtering is applied at the protocol layer. Model curation is governed by $HCOMPUTE holders on-chain.
 
 **Fully on-chain.** Every job generates at least two Robinhood Chain transactions: one to lock escrow and one to release payment. Every buyback, burn, and treasury action is a public, verifiable transaction. There is no "trust our dashboard" moment.
 
@@ -62,9 +62,9 @@ The network has three layers.
 | Cost per transaction | Fractions of a cent |
 | Provider payout | 98% of job value (85% with staking) |
 | Stablecoin | USDG (ERC-20) |
-| Governance token | $HOODCOMPUTE |
-| Total $HOODCOMPUTE supply | 1,000,000,000 (fixed, no inflation) |
-| Minimum stake for Tier 2 | 1,000 $HOODCOMPUTE |
+| Governance token | $HCOMPUTE |
+| Total $HCOMPUTE supply | 1,000,000,000 (fixed, no inflation) |
+| Minimum stake for Tier 2 | 1,000 $HCOMPUTE |
 | Prompt retention | Zero |
 
 ---

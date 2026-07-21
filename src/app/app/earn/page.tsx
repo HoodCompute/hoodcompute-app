@@ -368,13 +368,13 @@ export default function EarnPage() {
           {/* Staking */}
           <div className="rounded-[10px] overflow-hidden" style={CARD}>
             <div className="border-b px-5 py-3.5" style={BORDER}>
-              <h2 className="text-[13px] font-[500] text-white/80">$HOODCOMPUTE stake</h2>
+              <h2 className="text-[13px] font-[500] text-white/80">$HCOMPUTE stake</h2>
             </div>
             <div className="p-5 space-y-3">
               <div className="flex justify-between">
                 <span className="text-[12px] text-white/35">Staked</span>
                 <span className="font-mono text-[13px] font-[500] text-white/80">
-                  {Number(provider.hoodc_staked).toLocaleString()} $HOODCOMPUTE
+                  {Number(provider.hoodc_staked).toLocaleString()} $HCOMPUTE
                 </span>
               </div>
               <div className="flex justify-between">
@@ -387,7 +387,7 @@ export default function EarnPage() {
                 <div className="rounded-[6px] px-3 py-2.5"
                   style={{ background: "oklch(0.86 0.13 200 / 0.10)", border: "1px solid oklch(0.86 0.13 200 / 0.25)" }}>
                   <p className="text-[12px] text-white/50 leading-relaxed">
-                    Stake 1,000+ $HOODCOMPUTE to boost earnings to 85% of each job.
+                    Stake 1,000+ $HCOMPUTE to boost earnings to 85% of each job.
                   </p>
                 </div>
               )}

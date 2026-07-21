@@ -82,9 +82,9 @@ Inference runs in a Web Worker thread to keep the browser UI responsive during j
 
 Earnings are paid in USDG directly to your connected wallet after each completed job. There is no minimum payout threshold and no batching.
 
-Browser workers receive 98% of the job value. There is no stake requirement to start, but you cannot unlock the 85% rate with browser workers alone. The 85% rate requires the `hoodcompute-node` native worker with an active $HOODCOMPUTE stake.
+Browser workers receive 98% of the job value. There is no stake requirement to start, but you cannot unlock the 85% rate with browser workers alone. The 85% rate requires the `hoodcompute-node` native worker with an active $HCOMPUTE stake.
 
-During the beta period, all browser workers receive a 2x $HOODCOMPUTE reward multiplier on top of USDG earnings. This multiplier applies to $HOODCOMPUTE allocation from the Community/Provider rewards pool and vests over 18 months.
+During the beta period, all browser workers receive a 2x $HCOMPUTE reward multiplier on top of USDG earnings. This multiplier applies to $HCOMPUTE allocation from the Community/Provider rewards pool and vests over 18 months.
 
 ---
 

@@ -52,7 +52,7 @@ Tracks every registered worker on the network.
 
 For each worker, the registry stores:
 - Ethereum address
-- Staked $HOODCOMPUTE amount and lock tier
+- Staked $HCOMPUTE amount and lock tier
 - Declared model support list
 - On-chain reputation score (0 to 1000)
 - Cumulative completed jobs and earnings
@@ -75,7 +75,7 @@ Called by workers when submitting proof of completion.
 
 ### `staking`
 
-Handles $HOODCOMPUTE staking for workers and passive stakers. $HOODCOMPUTE is an ERC-20 token on Robinhood Chain.
+Handles $HCOMPUTE staking for workers and passive stakers. $HCOMPUTE is an ERC-20 token on Robinhood Chain.
 
 Lock options: 30 days, 90 days, and 180 days. Longer locks earn a higher reward rate multiplier (up to 1.5x at 180 days).
 
@@ -85,7 +85,7 @@ Slashing is triggered by `settlement` when a valid dispute is confirmed. The sla
 
 ### `governance`
 
-Manages on-chain voting for model curation, protocol fee parameters, and contract upgrades. Active post-beta. $HOODCOMPUTE holders vote proportionally to their staked balance.
+Manages on-chain voting for model curation, protocol fee parameters, and contract upgrades. Active post-beta. $HCOMPUTE holders vote proportionally to their staked balance.
 
 ---
 
@@ -98,11 +98,11 @@ When a job settles, the escrowed USDG is split as follows:
 | Worker wallet | 98% | 85% |
 | Protocol treasury | 25% | 15% |
 
-Workers qualify for the 85% rate if they have a minimum of 1,000 $HOODCOMPUTE staked in the `staking` contract at the time the settlement transaction executes.
+Workers qualify for the 85% rate if they have a minimum of 1,000 $HCOMPUTE staked in the `staking` contract at the time the settlement transaction executes.
 
 The protocol treasury accumulates USDG. Weekly, the treasury contract:
-- Uses 50% of accumulated fees to buy back $HOODCOMPUTE on Uniswap and burn the purchased tokens
-- Distributes 50% to $HOODCOMPUTE stakers pro-rata by staked balance
+- Uses 50% of accumulated fees to buy back $HCOMPUTE on Uniswap and burn the purchased tokens
+- Distributes 50% to $HCOMPUTE stakers pro-rata by staked balance
 
 Every buyback and burn is a public transaction on Robinhood Chain. The HoodCompute Explorer displays the full history.
 
@@ -120,9 +120,9 @@ Call the `dispute` function on the `settlement` contract with:
 
 The contract compares your hash to the proof hash the worker submitted. If they differ, the job is flagged as `Disputed` and held in escrow pending arbitration.
 
-**Beta arbitration:** The HoodCompute Safe multisig reviews disputes and issues a ruling. If the worker is found to have submitted a fraudulent proof, 5% of their staked $HOODCOMPUTE is slashed (burned), and the user's credits are refunded.
+**Beta arbitration:** The HoodCompute Safe multisig reviews disputes and issues a ruling. If the worker is found to have submitted a fraudulent proof, 5% of their staked $HCOMPUTE is slashed (burned), and the user's credits are refunded.
 
-**Post-beta arbitration:** A DAO committee elected by $HOODCOMPUTE holders will handle disputes. The long-term direction is ZK proof-of-inference, which would make this fully trustless by making the proof self-verifying without a dispute window.
+**Post-beta arbitration:** A DAO committee elected by $HCOMPUTE holders will handle disputes. The long-term direction is ZK proof-of-inference, which would make this fully trustless by making the proof self-verifying without a dispute window.
 
 ---
 

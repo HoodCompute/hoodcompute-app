@@ -104,7 +104,7 @@ No component of the HoodCompute stack writes logs that contain prompt or respons
 
 No model-level content filtering is applied by the HoodCompute protocol. All models available on the network are open-weight models that workers choose to host. The protocol does not inspect, score, or gate any prompt or response.
 
-Workers choose which models they run. No worker is required to host any specific model. Model availability on the recommended list is governed by $HOODCOMPUTE holder votes on-chain, not by a content policy team.
+Workers choose which models they run. No worker is required to host any specific model. Model availability on the recommended list is governed by $HCOMPUTE holder votes on-chain, not by a content policy team.
 
 ---
 

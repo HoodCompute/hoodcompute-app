@@ -13,7 +13,7 @@ Providing compute requires an Ethereum wallet (MetaMask, Rabby, or Robinhood Wal
 
 - [Browser Worker]({% link providers/browser-worker.md %}): join with a browser tab, no installation required
 - [Native Worker]({% link providers/native-worker.md %}): higher earnings, larger models, `hoodcompute-node` daemon
-- [Staking]({% link providers/staking.md %}): stake $HOODCOMPUTE to unlock the 85% payout rate and earn protocol fees
+- [Staking]({% link providers/staking.md %}): stake $HCOMPUTE to unlock the 85% payout rate and earn protocol fees
 - [Reputation]({% link providers/reputation.md %}): how your on-chain reputation score is calculated and what it affects
 
 ---
@@ -22,11 +22,11 @@ Providing compute requires an Ethereum wallet (MetaMask, Rabby, or Robinhood Wal
 
 | | Browser Worker | Native Worker (unstaked) | Native Worker (staked) |
 |---|---|---|---|
-| Setup | Open a browser tab | Install `hoodcompute-node` | Install + stake 1,000+ $HOODCOMPUTE |
+| Setup | Open a browser tab | Install `hoodcompute-node` | Install + stake 1,000+ $HCOMPUTE |
 | Models | 1B to 8B quantized | 8B to 70B+ | 8B to 70B+ |
 | Payout rate | 98% | 98% | 85% |
-| Minimum stake | None | None | 1,000 $HOODCOMPUTE |
+| Minimum stake | None | None | 1,000 $HCOMPUTE |
 | Routing priority | Standard | Standard | Elevated |
-| Beta $HOODCOMPUTE multiplier | 2x | 2x | 2x |
+| Beta $HCOMPUTE multiplier | 2x | 2x | 2x |
 
 Staked native workers receive the highest routing priority on the network and earn 85 cents of every dollar billed for their completed jobs.

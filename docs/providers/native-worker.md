@@ -9,7 +9,7 @@ nav_order: 2
 
 The native worker runs `hoodcompute-node`, a single-binary Rust daemon that manages GPU backends, model downloads, job queue handling, and on-chain settlement interactions.
 
-Native workers support larger models, earn more per job, and with an active $HOODCOMPUTE stake receive 85% of each completed job's credit value.
+Native workers support larger models, earn more per job, and with an active $HCOMPUTE stake receive 85% of each completed job's credit value.
 
 ---
 
@@ -104,7 +104,7 @@ hoodcompute-node models info llama-3.3-70b
 # Earnings per job: $0.300 (unstaked) / $0.340 (staked)
 ```
 
-### Step 3: Stake $HOODCOMPUTE (optional but recommended)
+### Step 3: Stake $HCOMPUTE (optional but recommended)
 
 Staking is not required to start earning, but it unlocks the 85% payout rate and elevates your routing priority. See the [Staking guide]({% link providers/staking.md %}) for the full staking flow.
 

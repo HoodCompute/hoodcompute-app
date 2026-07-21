@@ -139,7 +139,7 @@ All contracts are open-source and audited before Mainnet deployment.
 | `job_escrow` | Locks credits when a job is submitted. Releases on verified completion or refunds on timeout. |
 | `worker_registry` | Manages worker stake, registered models, and on-chain reputation. |
 | `settlement` | Verifies proof of completion. Distributes payout to worker and treasury. |
-| `staking` | Handles $HOODCOMPUTE staking, lock periods, and earnings multiplier tiers. |
+| `staking` | Handles $HCOMPUTE staking, lock periods, and earnings multiplier tiers. |
 | `governance` | On-chain voting for model curation, fee parameters, and protocol upgrades. Active post-beta. |
 
 ### Proof of completion
@@ -151,7 +151,7 @@ After each inference job, the worker submits a lightweight cryptographic proof:
 
 The `settlement` contract verifies the signature matches the registered address, then releases the escrow. If the client-side hash of the received output does not match the submitted proof, the client can open a dispute within a 60-second window.
 
-**Beta dispute resolution:** The HoodCompute Safe multisig arbitrates. A confirmed dishonest proof submission results in slashing 5% of the worker's staked $HOODCOMPUTE.
+**Beta dispute resolution:** The HoodCompute Safe multisig arbitrates. A confirmed dishonest proof submission results in slashing 5% of the worker's staked $HCOMPUTE.
 
 **Long-term:** ZK proof-of-inference is on the active research track. This would make verification fully trustless without requiring a dispute window.
 
@@ -164,7 +164,7 @@ The `settlement` contract verifies the signature matches the registered address,
 | Blockchain | Robinhood Chain Mainnet | ~100ms blocks, sub-cent fees, Ethereum security, native USDG |
 | Smart contracts | Solidity + Foundry | Battle-tested EVM toolchain; audited with industry-standard tooling |
 | Credits | USDG (ERC-20) | Stable, Paxos-issued, native to Robinhood Chain |
-| Governance token | $HOODCOMPUTE (ERC-20) | Staking, governance, protocol value accrual |
+| Governance token | $HCOMPUTE (ERC-20) | Staking, governance, protocol value accrual |
 | P2P networking | libp2p | Proven peer mesh for the orchestrator layer |
 | Native inference | llama.cpp | Supports CUDA, Metal, ROCm; broad model format support |
 | Browser inference | WebLLM + WebGPU | Zero-install browser workers |

@@ -240,7 +240,7 @@ export default function SettingsPage() {
           <div>
             <p className="text-[13px] font-[500] text-white/90">Active beta member</p>
             <p className="text-[12px] text-white/40 mt-0.5">
-              2x $HOODCOMPUTE provider multiplier active · No platform fees until beta ends.
+              2x $HCOMPUTE provider multiplier active · No platform fees until beta ends.
             </p>
           </div>
           <span className="rounded-full px-3 py-1 text-[12px] font-[500] uppercase tracking-widest"

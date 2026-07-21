@@ -111,6 +111,6 @@ hoodcompute-node status
 Reputation is separate from the staking slash mechanic. A successful dispute against you triggers two independent consequences:
 
 1. Your proof verification pass rate drops, which lowers your reputation score.
-2. If you are staked, 5% of your staked $HOODCOMPUTE is burned.
+2. If you are staked, 5% of your staked $HCOMPUTE is burned.
 
 Reputation is earned through sustained performance. It cannot be purchased, transferred, or gamed by stake alone.

@@ -64,7 +64,7 @@ import os
 api_key = os.environ["HOODCOMPUTE_API_KEY"]
 ```
 
-**Key scope:** An API key can only spend credits from the wallet that created it. It cannot withdraw credits, transfer $HOODCOMPUTE, or modify account settings.
+**Key scope:** An API key can only spend credits from the wallet that created it. It cannot withdraw credits, transfer $HCOMPUTE, or modify account settings.
 
 **Key revocation:** If you believe a key has been compromised, revoke it immediately from Settings. Revocation is instant and takes effect for all subsequent requests.
 
