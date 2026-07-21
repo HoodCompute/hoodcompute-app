@@ -19,9 +19,6 @@ dist
 .idea
 .vscode
 
-# contracts (separate repo)
-contracts/
-
 # typescript build info
 *.tsbuildinfo
 
