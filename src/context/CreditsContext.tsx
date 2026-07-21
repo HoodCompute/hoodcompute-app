@@ -45,17 +45,11 @@ export function CreditsProvider({ children }: { children: React.ReactNode }) {
     if (error && error.code === "PGRST116") {
       const { data: created } = await supabase
         .from("credits")
-        .insert({ user_id: uid, balance: 100, total_purchased: 100, total_spent: 0 })
+        .insert({ user_id: uid, balance: 0, total_purchased: 0, total_spent: 0 })
         .select("balance, total_purchased, total_spent")
         .single();
       if (created) {
         setData(created);
-        await supabase.from("credit_transactions").insert({
-          user_id: uid,
-          type: "bonus",
-          amount: 100,
-          description: "Welcome bonus - 100 free credits",
-        });
       }
     } else if (row) {
       setData(row);
