@@ -13,7 +13,22 @@ import type {
   ModelTier,
   Usage,
 } from "../types.js"
-import { NotFoundError } from "../errors.js"
+import { ConnectionError, JobTimeoutError, NotFoundError } from "../errors.js"
+
+/** Statuses after which a job will no longer change. */
+const TERMINAL_STATUSES: ReadonlySet<JobStatus> = new Set([
+  "settled",
+  "failed",
+  "refunded",
+])
+
+export interface WaitForSettlementOptions {
+  /** Milliseconds between polls. Defaults to 2000. */
+  pollIntervalMs?: number
+  /** Give up after this many milliseconds. Defaults to 120000. */
+  timeoutMs?: number
+  signal?: AbortSignal
+}
 
 interface RawJob {
   id: string
@@ -100,6 +115,58 @@ export class Jobs {
   }
 
   /**
+   * List every job matching the filters, transparently following cursor
+   * pagination. Stop iterating early to stop fetching pages.
+   *
+   * @example
+   * for await (const job of client.jobs.iterate({ status: "settled" })) {
+   *   console.log(job.id, job.creditsCharged)
+   * }
+   */
+  async *iterate(
+    params: Omit<JobListParams, "before" | "after"> = {},
+    options: { signal?: AbortSignal } = {},
+  ): AsyncGenerator<Job, void, undefined> {
+    let cursor: string | undefined
+    while (true) {
+      const page = await this.list({ ...params, before: cursor }, options)
+      yield* page.data
+      if (!page.hasMore || page.nextCursor === null) return
+      cursor = page.nextCursor
+    }
+  }
+
+  /**
+   * Poll a job until it reaches a terminal status (`settled`, `failed`, or
+   * `refunded`) and return the final record. Throws {@link JobTimeoutError}
+   * when the deadline passes first.
+   */
+  async waitForSettlement(
+    jobId: string,
+    options: WaitForSettlementOptions = {},
+  ): Promise<Job> {
+    const pollIntervalMs = options.pollIntervalMs ?? 2_000
+    const timeoutMs = options.timeoutMs ?? 120_000
+    const deadline = Date.now() + timeoutMs
+
+    while (true) {
+      const job = await this.get(jobId, { signal: options.signal })
+      if (TERMINAL_STATUSES.has(job.status)) return job
+
+      if (Date.now() + pollIntervalMs > deadline) {
+        throw new JobTimeoutError(
+          `Job ${jobId} still has status "${job.status}" after ${timeoutMs}ms.`,
+          { code: "settlement_wait_timeout" },
+        )
+      }
+      await sleep(pollIntervalMs)
+      if (options.signal?.aborted) {
+        throw new ConnectionError("Request aborted by caller.")
+      }
+    }
+  }
+
+  /**
    * Fetch the on-chain receipt for a settled job. Throws if the job exists but
    * has not settled yet.
    */
@@ -159,4 +226,8 @@ export class Jobs {
       arbitrationWindowHours: data.arbitration_window_hours ?? null,
     }
   }
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }

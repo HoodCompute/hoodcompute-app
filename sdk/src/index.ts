@@ -24,6 +24,8 @@ export type { HoodComputeClientOptions } from "./client.js"
 export { ChatCompletionStream } from "./streaming.js"
 export type { StreamReceipt } from "./streaming.js"
 
+export type { WaitForSettlementOptions } from "./resources/jobs.js"
+
 export {
   verifyWebhookSignature,
   constructWebhookEvent,
