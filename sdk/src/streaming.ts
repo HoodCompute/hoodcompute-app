@@ -61,11 +61,12 @@ export class ChatCompletionStream implements AsyncIterable<ChatCompletionChunk> 
         if (done) break
         buffer += decoder.decode(value, { stream: true })
 
-        // SSE events are separated by a blank line.
-        let boundary = buffer.indexOf("\n\n")
-        while (boundary !== -1) {
-          const rawEvent = buffer.slice(0, boundary)
-          buffer = buffer.slice(boundary + 2)
+        // SSE events are separated by a blank line, with either LF or CRLF
+        // line endings.
+        let boundary = findBoundary(buffer)
+        while (boundary !== null) {
+          const rawEvent = buffer.slice(0, boundary.index)
+          buffer = buffer.slice(boundary.index + boundary.length)
 
           const chunk = parseEvent(rawEvent)
           if (chunk === DONE) {
@@ -74,7 +75,7 @@ export class ChatCompletionStream implements AsyncIterable<ChatCompletionChunk> 
           if (chunk) {
             yield chunk
           }
-          boundary = buffer.indexOf("\n\n")
+          boundary = findBoundary(buffer)
         }
       }
 
@@ -84,6 +85,9 @@ export class ChatCompletionStream implements AsyncIterable<ChatCompletionChunk> 
         yield trailing
       }
     } finally {
+      // Cancel before releasing so an early exit from iteration closes the
+      // underlying connection instead of leaving it open.
+      await reader.cancel().catch(() => {})
       reader.releaseLock()
       // Refresh the receipt in case trailer headers landed after the stream.
       this.receipt = this.readReceipt()
@@ -114,6 +118,18 @@ export class ChatCompletionStream implements AsyncIterable<ChatCompletionChunk> 
 
 /** Sentinel marking the `[DONE]` terminator. */
 const DONE = Symbol("done")
+
+/**
+ * Locate the earliest blank-line event boundary in the buffer, whether the
+ * server uses LF or CRLF line endings.
+ */
+function findBoundary(buffer: string): { index: number; length: number } | null {
+  const lf = buffer.indexOf("\n\n")
+  const crlf = buffer.indexOf("\r\n\r\n")
+  if (lf === -1 && crlf === -1) return null
+  if (crlf !== -1 && (lf === -1 || crlf < lf)) return { index: crlf, length: 4 }
+  return { index: lf, length: 2 }
+}
 
 /**
  * Parse one raw SSE event block into a chunk. Returns `DONE` on the terminator,

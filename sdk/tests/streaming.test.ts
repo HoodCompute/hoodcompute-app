@@ -90,4 +90,33 @@ describe("ChatCompletionStream", () => {
     const stream = new ChatCompletionStream(new Response(null))
     await expect(stream.text()).rejects.toThrow(/no body/i)
   })
+
+  it("parses events separated by CRLF blank lines", async () => {
+    const chunk = (content: string) =>
+      `data: ${JSON.stringify({ choices: [{ delta: { content } }] })}\r\n\r\n`
+    const stream = new ChatCompletionStream(
+      sseResponse([chunk("Hel"), chunk("lo"), "data: [DONE]\r\n\r\n"]),
+    )
+    expect(await stream.text()).toBe("Hello")
+  })
+
+  it("cancels the underlying body when iteration exits early", async () => {
+    let cancelled = false
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(encoder.encode(contentChunk("a")))
+        controller.enqueue(encoder.encode(contentChunk("b")))
+      },
+      cancel() {
+        cancelled = true
+      },
+    })
+    const stream = new ChatCompletionStream(new Response(body))
+
+    for await (const chunk of stream) {
+      expect(chunk.choices[0]?.delta?.content).toBe("a")
+      break
+    }
+    expect(cancelled).toBe(true)
+  })
 })
